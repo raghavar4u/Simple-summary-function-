@@ -1,0 +1,14 @@
+DetailSummary<-function(data)
+{
+ Mean<-apply(data, 2, mean,na.rm=TRUE)
+ Count<-apply(data, 2, length)
+ Missing<-apply(data,2,function(x){sum(is.na(x))})
+ Unique<-apply(data,2,function(x){length(unique(x))})
+ qunat<-t(apply(data,2,na.rm=TRUE,quantile,prob=c(0,0.02,0.25,0.50,0.75,0.98,1)))
+ Output<-cbind(Count,Unique,Missing,Mean,qunat)
+ return(Output)
+}
+
+
+DetailSummary(mtcars)
+DetailSummary(airquality)
