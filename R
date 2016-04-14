@@ -1,6 +1,6 @@
 DetailSummary<-function(data)
 {
- Mean<-apply(data, 2, mean,na.rm=TRUE)
+ Mean<-round(apply(data, 2, mean,na.rm=TRUE),2)
  Count<-apply(data, 2, length)
  Missing<-apply(data,2,function(x){sum(is.na(x))})
  Unique<-apply(data,2,function(x){length(unique(x))})
